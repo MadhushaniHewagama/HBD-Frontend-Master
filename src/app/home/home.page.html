@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Test Data
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>ID</ion-col>
+    <ion-col>Name</ion-col>
+  </ion-row>
+  <ion-virtual-scroll [items]="data" approxItemHeight="100px">
+    <ion-list *virtualItem="let item">
+      <ion-item>
+        <p>{{item.id}}</p>
+        <p>{{item.name}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-virtual-scroll>
+</ion-content>
