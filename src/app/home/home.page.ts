@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HdbService } from '../services/hdb.service';
-
+import { SMS } from '@ionic-native/sms/ngx';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -8,8 +8,9 @@ import { HdbService } from '../services/hdb.service';
 })
 export class HomePage {
   public data: any;
-  constructor(private hbdService: HdbService ) {
-    this.getTestData();
+  constructor(private hbdService: HdbService,private sms: SMS ) {
+    //this.getTestData();
+    //this.sms.send('0717725158', 'Test');
   }
 
   getTestData(): void{
@@ -22,5 +23,8 @@ export class HomePage {
         console.log("error"+err)
       }
     )
+  }
+  smsSend(): void{
+    this.sms.send('0717725158', 'Test');
   }
 }

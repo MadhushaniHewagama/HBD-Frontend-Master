@@ -1,5 +1,7 @@
 {
   "name": "HBD-client",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
