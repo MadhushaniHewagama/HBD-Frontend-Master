@@ -6,38 +6,53 @@
 
 <ion-content>
 
-<div class="cont">
-<div class="email">
+  <form [formGroup] = "signUpForm">
+
+    <div class="cont">
+      <div class="email">
         <ion-item>
-        <ion-label position="floating" >Email</ion-label>
-        <ion-input id="email" type="email"></ion-input>
-  </ion-item>
-</div> 
+          <ion-label position="floating">Email</ion-label>
+          <ion-input id="email" type="email" formControlName="email"></ion-input>
+        </ion-item>
+      </div>
 
-<div class="username">
-    <ion-item>
-    <ion-label position="floating" >Username</ion-label>
-    <ion-input id="username"></ion-input>
-</ion-item>
-</div> 
+      <div class="error-msg" *ngIf = "signUpForm.controls.email.errors && (signUpForm.controls.email.dirty || signUpForm.controls.email.touched)"><p *ngIf="signUpForm.controls.email.required" style="color: red;">Email is required</p></div>
 
-<div class="pwd">
-    <ion-item>
-    <ion-label position="floating" >Password</ion-label>
-    <ion-input id="password" type="Password"></ion-input>
-</ion-item>
-</div>
+      <div class="username">
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input id="user_name" formControlName="user_name"></ion-input>
+        </ion-item>
+      </div>
 
-<div class="re-pwd">
-    <ion-item>
-    <ion-label position="floating" >Re Enter Password</ion-label>
-    <ion-input id="re-enter" type="Password"></ion-input>
-</ion-item>
-</div>
+      <div class="error-msg" *ngIf = "signUpForm.controls.user_name.errors && (signUpForm.controls.user_name.dirty || signUpForm.controls.user_name.touched)"><p *ngIf="signUpForm.controls.user_name.required" style="color: red;">Username is required</p></div>
 
-<div class="btn-sign-up">
-  <ion-button type="submit">Sign Up</ion-button>
-</div>
-</div>
+
+      <div class="pwd">
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input id="password" type="Password" formControlName="password"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="error-msg" *ngIf = "signUpForm.controls.password.errors && (signUpForm.controls.password.dirty || signUpForm.controls.password.touched)"><p *ngIf="signUpForm.controls.password.required" style="color: red;">Password is required</p></div>
+
+
+ <!--    <div class="re-pwd">
+        <ion-item>
+          <ion-label position="floating">Re Enter Password</ion-label>
+          <ion-input id="re-enter" type="Password"></ion-input>
+        </ion-item>
+      </div>--> 
+
+    <!--  <div class="error-msg" *ngIf = "signUpForm.controls.re-pwd.errors && (signUpForm.controls.re-pwd.dirty || signUpForm.controls.re-pwd.touched)"><p *ngIf="signUpForm.controls.re-pwd.required" style="color: red;">Plese re enter password</p></div>-->
+
+    </div>
+  </form>
+
+  <div class="btn-sign-up">
+    <ion-button type="submit" (click)="register()">Sign Up</ion-button>
+  </div>
+  
 
 </ion-content>
