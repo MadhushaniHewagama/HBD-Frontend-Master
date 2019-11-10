@@ -16,7 +16,7 @@
         </ion-item>
       </div>
 
-      <div class="error-msg" *ngIf = "signUpForm.controls.email.errors && (signUpForm.controls.email.dirty || signUpForm.controls.email.touched)"><p class="err" *ngIf="signUpForm.controls.email.errors.required" style="color: red;">Email is required</p></div>
+      <div class="error-msg" *ngIf = "signUpForm.controls.email.errors && (signUpForm.controls.email.dirty || signUpForm.controls.email.touched)"><p class="err" *ngIf="signUpForm.controls.email.errors.required" style="color: red;">Email is required</p><p class="err" *ngIf="signUpForm.controls.email.errors.email && signUpForm.controls.email.touched" style="color: red;">Incorrect format</p></div>
 
       <div class="username">
         <ion-item>
