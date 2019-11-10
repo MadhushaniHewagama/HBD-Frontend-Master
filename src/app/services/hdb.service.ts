@@ -17,8 +17,7 @@ export class HdbService {
   }
 
   public addUser(user:User): Observable<any>{
-    const url = '${API_URL}/users';
-
+    const url = `${API_URL}/users`;
     return this.httpClient.post(url, user);
   }
 
