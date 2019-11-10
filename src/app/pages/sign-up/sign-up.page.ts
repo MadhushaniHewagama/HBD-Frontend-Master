@@ -36,8 +36,10 @@ export class SignUpPage implements OnInit {
   }
 
   register():void{
-    if(true){
-      console.log(JSON.stringify(this.signUpForm.value));
+    console.log(JSON.stringify(this.signUpForm.value));
+    console.log(this.signUpForm.valid)
+    if(this.signUpForm.valid){
+     
       this.hbdService.addUser(this.signUpForm.value).subscribe(
         res => { console.log(res); },
         err => { console.log(err); }
