@@ -16,26 +16,26 @@
         </ion-item>
       </div>
 
-      <div class="error-msg" *ngIf = "signUpForm.controls.email.errors && (signUpForm.controls.email.dirty || signUpForm.controls.email.touched)"><p *ngIf="signUpForm.controls.email.required" style="color: red;">Email is required</p></div>
+      <div class="error-msg" *ngIf = "signUpForm.controls.email.errors && (signUpForm.controls.email.dirty || signUpForm.controls.email.touched)"><p class="err" *ngIf="signUpForm.controls.email.required" style="color: red;">Email is required</p></div>
 
       <div class="username">
         <ion-item>
-          <ion-label position="floating">Username</ion-label>
+          <ion-label position="floating">User Name</ion-label>
           <ion-input id="user_name" formControlName="user_name"></ion-input>
         </ion-item>
       </div>
 
-      <div class="error-msg" *ngIf = "signUpForm.controls.user_name.errors && (signUpForm.controls.user_name.dirty || signUpForm.controls.user_name.touched)"><p *ngIf="signUpForm.controls.user_name.required" style="color: red;">Username is required</p></div>
+      <div class="error-msg" *ngIf = "signUpForm.controls.user_name.errors && (signUpForm.controls.user_name.dirty || signUpForm.controls.user_name.touched)"><p class="err"  *ngIf="signUpForm.controls.user_name.required" style="color: red;">Username is required</p></div>
 
 
       <div class="pwd">
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input id="password" type="Password" formControlName="password"></ion-input>
+          <ion-input id="password" type="password" formControlName="password"></ion-input>
         </ion-item>
       </div>
 
-      <div class="error-msg" *ngIf = "signUpForm.controls.password.errors && (signUpForm.controls.password.dirty || signUpForm.controls.password.touched)"><p *ngIf="signUpForm.controls.password.required" style="color: red;">Password is required</p></div>
+      <div class="error-msg" *ngIf = "signUpForm.controls.password.errors && (signUpForm.controls.password.dirty || signUpForm.controls.password.touched)"><p class="err"  *ngIf="signUpForm.controls.password.required" style="color: red;">Password is required</p></div>
 
 
  <!--    <div class="re-pwd">
