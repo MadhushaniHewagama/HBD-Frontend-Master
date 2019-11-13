@@ -9,7 +9,7 @@ import { NavController } from '@ionic/angular';
 export class HomePage {
   viewTitle: any;
   [x: string]: any;
-   monthNames = ['January','February','March','April','May','June','July','August','September','Octomber','November','December']; 
+   monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December']; 
   public eventSource = [];
   public selectedDate = new Date();
   public showDate=this.monthNames[this.selectedDate.getMonth()] +" "+ this.selectedDate.getFullYear().toString();
