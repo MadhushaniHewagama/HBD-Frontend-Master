@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -10,12 +10,12 @@ export class HomePage {
   viewTitle: any;
   [x: string]: any;
    monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December']; 
-  public eventSource : any;
+   public eventSource : any;
   public selectedDate = new Date();
   public showDate=this.monthNames[this.selectedDate.getMonth()] +" "+ this.selectedDate.getFullYear().toString();
   
   isToday: boolean = true;
-  
+  date = new Date();
   calendar = {
     mode: 'month',
     currentDate: this.selectedDate,
@@ -26,36 +26,44 @@ export class HomePage {
   }
   }
 
-  constructor(public navCtrl: NavController) {
-    this.loadEvents();
+  constructor(public navCtrl: NavController,public router:Router) {
+    console.log("start date:::::::::::::"+new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate())))
+    console.log("end::::::")
+    this.eventSource=[{
+      title: 'Ishanks Birth Day',
+      startTime: new Date(),
+      endTime: new Date(),
+      
+  },{
+    title: 'Madhus Birth Day',
+    startTime: new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth()+1, this.date.getUTCDate() + 4)),
+    endTime: new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth()+1, this.date.getUTCDate() + 4)),
+    allDay: true
+  },{
+  title: 'Sandunis Birth Day',
+  startTime: new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate() +1)),
+  endTime: new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate() +2)),
+  allDay: false
+  },{
+    title: 'Lahirus Birth Day',
+    startTime: new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate() - 2)),
+    endTime: new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate() -1)),
+    allDay: false
+    },{
+      title: 'Some one else Birth Day',
+      startTime: new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate() +1)),
+      endTime: new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate() +2)),
+      allDay: false
+      }];
   }
   changeMode(mode) {
     this.calendar.mode = mode;
   }
   loadEvents() {
-    this.eventSource = this.createRandomEvents();
-  }
-  createRandomEvents() {
-    var date = new Date();
-    var events = [{
-      title: 'Meeting 1',
-      startTime: new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + 1)),
-      endTime: new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + 2)),
-      allDay: true
-  },{
-    title: 'Meeting 2',
-    startTime: new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + 3)),
-    endTime: new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + 4)),
-    allDay: true
-},{
-  title: 'Meeting 3',
-  startTime: new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() - 2)),
-  endTime: new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() - 1)),
-  allDay: true
-}];
-    
-    return events;
-}
+    }
+
+createEvent(){}
+
   onCurrentDateChanged(ev) {
     console.log(ev);
     var today = new Date();
@@ -78,5 +86,8 @@ export class HomePage {
   }
   onEventSelected(event) {
     console.log(event);
+  }
+  addEvent(): void{
+    this.router.navigate(['add-event']);
   }
 }

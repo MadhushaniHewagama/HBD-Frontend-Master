@@ -1,0 +1,57 @@
+<ion-header id="top">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="home"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Add Birth Day</ion-title>
+
+</ion-header>
+
+<ion-content>
+  <div class="cont">
+    <form [formGroup]="addBirthDay">
+      <div class="date">
+        <ion-item>
+          <ion-label >Date:</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date" required></ion-datetime>
+        </ion-item>
+      </div>
+
+      <div class="error-msg"
+        *ngIf="addBirthDay.controls.date.errors && (addBirthDay.controls.date.dirty || addBirthDay.controls.date.touched)">
+        <p class="err" *ngIf="addBirthDay.controls.date.errors.required" style="color: red;">Please select date</p>
+         </div>
+
+      <div class="name">
+        <ion-item>
+          <ion-label >Name:</ion-label>
+          <ion-input type="text" id="name" formControlName="name" required></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="error-msg"
+        *ngIf="addBirthDay.controls.name.errors && (addBirthDay.controls.name.dirty || addBirthDay.controls.name.touched)">
+        <p class="err" *ngIf="addBirthDay.controls.name.errors.required" style="color: red;">Please enter name</p>
+      </div>
+      <div class="phone">
+        <ion-item>
+          <ion-label >Phone Number:</ion-label>
+          <ion-input type="tel" id="phone" formControlName="phone"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="msg">
+        <ion-item>
+          <ion-label >Message:</ion-label>
+          <ion-input type="text" id="msg" formControlName="msg" required></ion-input>
+        </ion-item>
+      </div>
+     
+
+    </form>
+
+
+    <ion-button item-end (click)="add()">Add Birth Day</ion-button>
+
+
+  </div>
+</ion-content>

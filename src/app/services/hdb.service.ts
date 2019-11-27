@@ -20,5 +20,9 @@ export class HdbService {
     const url = `${API_URL}/users`;
     return this.httpClient.post(url, user);
   }
+  public addBDay(bDay:BDay): Observable<any>{
+    const url = `${API_URL}/bday`;
+    return this.httpClient.post(url, bDay);
+  }
 
 }
