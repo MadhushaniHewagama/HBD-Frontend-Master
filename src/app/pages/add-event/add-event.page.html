@@ -11,8 +11,8 @@
     <form [formGroup]="addBirthDay">
       <div class="date">
         <ion-item>
-          <ion-label >Date:</ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date" required></ion-datetime>
+          <ion-label position="floating" >Date:</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" picker-format="MM/DD/YYYY" formControlName="date" required></ion-datetime>
         </ion-item>
       </div>
 
@@ -23,7 +23,7 @@
 
       <div class="name">
         <ion-item>
-          <ion-label >Name:</ion-label>
+          <ion-label position="floating" >Name:</ion-label>
           <ion-input type="text" id="name" formControlName="name" required></ion-input>
         </ion-item>
       </div>
@@ -34,14 +34,14 @@
       </div>
       <div class="phone">
         <ion-item>
-          <ion-label >Phone Number:</ion-label>
+          <ion-label position="floating" >Phone Number:</ion-label>
           <ion-input type="tel" id="phone" formControlName="phone"></ion-input>
         </ion-item>
       </div>
 
       <div class="msg">
         <ion-item>
-          <ion-label >Message:</ion-label>
+          <ion-label position="floating" >Message:</ion-label>
           <ion-input type="text" id="msg" formControlName="msg" required></ion-input>
         </ion-item>
       </div>

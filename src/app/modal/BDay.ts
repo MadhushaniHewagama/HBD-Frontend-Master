@@ -1,5 +1,5 @@
 export interface BDay{
-    date:Date;
+    date:string;
     name:string;
     phone:Number;
     msg: string;

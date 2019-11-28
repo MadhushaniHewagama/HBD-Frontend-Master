@@ -3,7 +3,7 @@ import {Observable } from 'rxjs';
 import{HttpClient} from '@angular/common/http';
 import{BASE_URL,API_URL} from '../config/constants'
 import { User } from '../modal/User';
-
+import {BDay} from '../modal/BDay'
 
 @Injectable({
   providedIn: 'root'

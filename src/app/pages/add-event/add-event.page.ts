@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HdbService } from 'src/app/services/hdb.service';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-add-event',
@@ -29,9 +29,12 @@ export class AddEventPage implements OnInit {
     })
 
   }
+  //.toISOString()
   add(): void{
-    if(this.addBirthDay.valid){
-      this.hbdService.addBDay(this.addBirthDay.value).subscribe(
+    console.log("test::::"+moment(this.addBirthDay.value.date).format('YYYY/MM/DD'))
+    console.log("test2:::"+JSON.stringify(this.addBirthDay.value))
+        if(this.addBirthDay.valid){
+      this.hbdService.addBDay({"date":moment(this.addBirthDay.value.date).format('YYYY/MM/DD'),"name":this.addBirthDay.value.name,"phone":this.addBirthDay.value.phone,"msg":this.addBirthDay.value.msg}).subscribe(
         res => { console.log(res); },
         err => { console.log(err); }
 
