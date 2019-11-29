@@ -14,7 +14,7 @@ export class SignInPage implements OnInit {
   }
 
   public btnClickedHome(): void{
-    this.router.navigate(['home']);
+    this.router.navigate(['calender']);
   }
 
 }
